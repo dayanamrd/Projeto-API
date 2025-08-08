@@ -3,10 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=stat_minus_1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+    <title>Leela Sua Assistente de IA</title>
 </head>
-<body>
-    <h1>Projeto API - Grupo Hydrastack
-    </h1>
+<body>    
+    <header>
+        <h1>Projeto API - Grupo Hydrastack</h1>
+        <div id="logo">
+            <h1 class="lobster-two-regular">Leela</h1>
+            <h1 class="outfit">GPT</h1>
+            <button id="dropdownButton" class="material-symbols-outlined dropdown-btn">stat_minus_1</button>            
+        </div>   
+        <div id="dropdownMenu" class="dropdown-content"> 
+            <p>Versão 1.0.0</p>
+        </div>  
+    </header>
+    <main>
+        <section>
+            <div class="prompt-content">
+                <h3>Como posso ajudar você hoje?</h3>
+                <form action="" method="POST">                    
+                    <label for="key">Chave da API:</label>
+                    <input type="password" name="key" id="key">
+                    <label for="model">Modelo:</label>
+                    <select name="model" id="model">
+                        <option value="gpt-4o-mini">gpt-4o-mini</option>
+                    </select>
+                    <label for="prompt">Digite a sua pergunta:</label>
+                    <textarea name="prompt" id="prompt" placeholder="Digite aqui a sua pergunta"></textarea>
+                    <button type="submit" id="submitButton" onclick="sendMessage()">Perguntar</button>
+                </form>
+            </div>
+        </section>                       
+        <section>
+            <div class="res-content" id="res">
+            </div>
+        </section>
+    </main>
+    <footer>Footer</footer>
+    <script src="script.js"></script>
 </body>
 </html>
