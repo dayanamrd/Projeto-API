@@ -8,28 +8,64 @@ function toggleDropdown() {
 
 dropdownButton.addEventListener('click', toggleDropdown);
 
-// Assistente de IA - OpenIA
-const API_KEY = document.getElementById("key").value;
 
-async function sendMessage() {
-    const msg = document.getElementById("prompt").value;
-    const modelGpt = document.getElementById("prompt").value;
+// Assistente de IA - Gemini API
+// Seleciona o formulário
+const form = document.querySelector('form');
+const outputResponse = document.getElementById("output");
 
-    document.getElementById("res").innerHTML += `<p><b>Você:</b> ${msg}</p>`;
-    document.getElementById("prompt").value = "";
+form.addEventListener('submit', async (event) => {
+    // Impede a submissão padrão do formulário
+    event.preventDefault();
 
-    const res = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEY}`
-        },
-        body: JSON.stringify({
-            model: modelGpt,
-            messages: [{ role: "user", content: msg }]
-        })
-    });
+    const API_KEY = document.querySelector('#key').value;
+    const model = document.querySelector('#model').value;
+    const promptText = document.querySelector('#prompt').value;
+    
+    if (!API_KEY) {
+        alert("Por favor, digite sua chave da API.");
+        return;
+    }
+    
+    if (!promptText) {
+        alert("Por favor, digite sua pergunta.");
+        return;
+    }
 
-    const data = await res.json();
-    document.getElementById("res").innerHTML += `<p><b>IA:</b> ${data.choices[0].message.content}</p>`;
-}
+    // Limpa a resposta anterior e mostra um indicador de carregamento
+    outputResponse.innerHTML = "Carregando...";
+
+    // Construção do corpo da requisição
+    const requestBody = {
+        contents: [{
+            parts: [{
+                text: promptText
+            }]
+        }]
+    };
+
+    try {
+        const URL_API = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
+        
+        const response = await fetch(URL_API, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro na API: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        const responseText = data.candidates[0].content.parts[0].text;
+        // Exibe a resposta na tela
+        outputResponse.innerHTML = responseText;
+
+    } catch (error) {
+        console.error('Ocorreu um erro:', error);
+        outputResponse.innerHTML = '<p>Desculpe, ocorreu um erro ao obter a resposta.</p>';
+    }
+});
