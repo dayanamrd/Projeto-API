@@ -1,11 +1,13 @@
 * {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 body {
+    margin: 100px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #9CAFAA;
 }
 
 #logo {
@@ -16,9 +18,70 @@ body {
     padding-left: 20px;
 }
 
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10 px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border-radius: 20px;
+}
+
+.prompt-content {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #D6DAC8;
+  border-radius: 10 px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border-radius: 20px;
+}
+
+.prompt-content label {
+ font-size: 18px;
+}
+
+.prompt-content input {
+  margin: 10px auto;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+}
+
+.prompt-content select {
+  margin: 10px auto;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+}
+
+.prompt-content textarea {
+  margin: 12px auto;
+  border: 2px solid #90caf9;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+}
+
+.prompt-content button {
+  margin: 10px auto;
+  border-radius: 6px;
+  background-color: green;
+  width: 100%;
+  max-width: 80px;
+  padding: 10px;
+  color: white;
+}
+
 .lobster-two-regular {
   font-family: "Lobster Two", sans-serif;
-  font-weight: 400;
+  font-weight: 200;
   font-style: normal;
 }
 
@@ -59,16 +122,4 @@ body {
 
 .show {
   display: block;
-}
-
-.prompt-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-footer {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
 }
