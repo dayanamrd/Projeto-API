@@ -16,12 +16,8 @@
         <h1>🤖 Assistente de IA - Grupo Hydrastack</h1>
         <div id="logo">
             <h1 class="lobster-two-regular">Leela</h1>
-            <h1 class="outfit">GPT</h1>
-            <button id="dropdownButton" class="material-symbols-outlined dropdown-btn">stat_minus_1</button>            
-        </div>   
-        <div id="dropdownMenu" class="dropdown-content"> 
-            <p>Versão 1.0.0</p>
-        </div>  
+            <h1 class="outfit">GPT</h1>       
+        </div>
     </header>
     <main>
         <section>
@@ -32,18 +28,17 @@
                     <input type="password" name="key" id="key"><br/>
                     <label for="model">Modelo:</label>
                     <select name="model" id="model">
+                        <option value="gemini-2.5-flash">Gemini 2.5-flash</option>
+                        <option value="gemini-2.0-flash">Gemini 2.0-flash</option>
                         <option value="gemini-1.5-flash">Gemini 1.5-flash</option>
                     </select><br/>
                     <label for="prompt">Digite a sua pergunta:</label>
                     <textarea name="prompt" id="prompt" placeholder="Digite aqui a sua pergunta"></textarea><br/>
                     <button type="submit" id="send">Perguntar</button>
                 </form>
-            </div>
-        </section>                       
-        <section>
-            <div id="output">
-            </div>
-        </section>
+                <div id="output"></div>
+            </div>            
+        </section> 
     </main>
     <script src="script.js"></script>
 </body>
