@@ -42,7 +42,7 @@ body {
 
 .prompt-content label {
  font-size: 18px;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .prompt-content input {
