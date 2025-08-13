@@ -41,7 +41,8 @@ body {
 }
 
 .prompt-content label {
- font-size: 18px;
+ font-size: 15px;
+  display: block;
 }
 
 .prompt-content input {

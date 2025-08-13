@@ -1,3 +1,17 @@
+# Projeto WEB AI — ASSISTENTE DE IA 🤖
+
+Espaço colaborativo onde estamos aplicando conhecimentos, utilizando a API Gemini da Google para geração de texto. Ele permite que o usuário faça perguntas e receba respostas geradas pela inteligência artificial.
+
+# Grupo
+
+- Dayana Miranda
+
+- Germana Priscila Brandão Pinto
+
+- Ítalo dos Santos Araujo Chaves
+
+- Sheyenne de Morais Carvalho
+
 # Como trabalhar usando branchs
 
 ➡️**Clone o repositório:**
@@ -46,3 +60,11 @@ Antes de começar um novo dia de trabalho, o ideal é sincronizar sua branch com
 ➡️**Se aparecer conflitos, você resolve no editor de código e depois:**  
 `git add .`  
 `git commit -m "resolvendo conflitos"`  
+
+
+# Tecnologias Utilizadas
+
+- HTML
+- CSS
+- JavaScript
+- API Gemini (Google Generative Language API) 
