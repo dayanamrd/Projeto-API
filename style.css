@@ -151,3 +151,67 @@ body {
   margin-top: 15px;
   text-align: justify;
 }
+
+/* responsividade */
+
+/* 320px - 480px */
+@media screen and (max-width: 480px) {
+  body {
+    margin: 20px;
+  }
+  .container,
+  .prompt-content {
+    padding: 15px;
+  }
+  .prompt-content input,
+  .prompt-content select,
+  .prompt-content textarea,
+  .prompt-content button {
+    max-width: 100%;
+  }
+  #logo h1 {
+    font-size: 1.2rem;
+  }
+}
+
+/* 481px - 768px */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    margin: 40px;
+  }
+  .container,
+  .prompt-content {
+    padding: 20px;
+  }
+  #logo h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* 769px - 1024px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  body {
+    margin: 60px;
+  }
+  .container,
+  .prompt-content {
+    padding: 25px;
+  }
+  #logo h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* 1025px e > */
+@media screen and (min-width: 1025px) {
+  body {
+    margin: 100px;
+  }
+  .container,
+  .prompt-content {
+    padding: 30px;
+  }
+  #logo h1 {
+    font-size: 2rem;
+  }
+}
