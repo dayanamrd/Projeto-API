@@ -1,45 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=stat_minus_1" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=stat_minus_1" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet">
     <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
     <title>Leela Sua Assistente de IA</title>
 </head>
-<body>    
+
+<body>
     <header class="container">
         <h1>🤖 Assistente de IA - Grupo Hydrastack</h1>
         <div id="logo">
             <h1 class="lobster-two-regular">Leela</h1>
-            <h1 class="outfit">GPT</h1>       
+            <h1 class="outfit">GPT</h1>
         </div>
     </header>
     <main>
         <section>
             <div class="prompt-content container">
                 <h3>Como posso ajudar você hoje?</h3>
-                <form action="" method="POST">                    
+                <form action="" method="POST">
                     <label for="key">Chave da API:</label>
-                    <input type="password" name="key" id="key"><br/>
+                    <input type="password" name="key" id="key"><br />
                     <label for="model">Modelo:</label>
                     <select name="model" id="model">
                         <option value="gemini-2.5-flash">Gemini 2.5-flash</option>
                         <option value="gemini-2.0-flash">Gemini 2.0-flash</option>
                         <option value="gemini-1.5-flash">Gemini 1.5-flash</option>
-                    </select><br/>
+                    </select><br />
                     <label for="prompt">Digite a sua pergunta:</label>
-                    <textarea name="prompt" id="prompt" placeholder="Digite aqui a sua pergunta"></textarea><br/>
+                    <textarea name="prompt" id="prompt" placeholder="Digite aqui a sua pergunta"></textarea><br />
                     <button type="submit" id="send">Perguntar</button>
                 </form>
                 <div id="output"></div>
-            </div>            
-        </section> 
+                <!-- Botão para PDF -->
+                <button id="exportPDF" style="display:none; margin-top:10px;">📤 Exportar PDF</button>
+            </div>
+        </section>
     </main>
+    <!-- pdfmaker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
