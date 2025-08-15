@@ -3,13 +3,16 @@
 const form = document.querySelector('form');
 const outputResponse = document.getElementById("output");
 const exportBtn = document.getElementById("exportPDF");
+const clearButton = document.getElementById("clearButton");
+const copyButton = document.getElementById("copyButton");
 let lastPrompt = "";
 let lastResponse = "";
 
 // Inicialmente esconde a caixa de resposta e o botão PDF
 outputResponse.style.display = "none";
 exportBtn.style.display = "none";
-
+clearButton.style.display = "none";
+copyButton.style.display = "none";
 
 form.addEventListener('submit', async (event) => {
     // Impede a submissão padrão do formulário
@@ -79,6 +82,8 @@ form.addEventListener('submit', async (event) => {
 
         // Mostra o botão de exportar PDF
         exportBtn.style.display = "inline-block";
+        clearButton.style.display = "inline-block";
+        copyButton.style.display = "inline-block";
 
 
     } catch (error) {
@@ -109,4 +114,37 @@ exportBtn.addEventListener('click', () => {
     };
 
     pdfMake.createPdf(docDefinition).download('resposta.pdf');
+});
+
+// Limpar pergunta e resposta
+clearButton.addEventListener('click', () => {
+    alert("Tem certeza que deseja apagar o conteúdo?");
+    // Limpa os inputs e a área de resposta
+    document.querySelector('#prompt').value = "";
+    outputResponse.innerHTML = "";
+    outputResponse.style.display = "none";
+
+    // Esconde os botões 
+    exportBtn.style.display = "none";
+    clearButton.style.display = "none";
+    copyButton.style.display = "none";
+
+    // Limpa o histórico
+    lastPrompt = "";
+    lastResponse = "";
+});
+
+// Copiar pergunta e resposta
+copyButton.addEventListener('click', () => {
+    if (!lastPrompt && !lastResponse) {
+        alert("Não há conteúdo para copiar.");
+        return;
+    }
+
+    const textToCopy = `Pergunta:\n${lastPrompt}\n\nResposta:\n${lastResponse}`;
+
+    // API web para copiar para a área de transferência
+    navigator.clipboard.writeText(textToCopy)
+        .then(() => alert("Pergunta e resposta copiadas!"))
+        .catch(err => alert("Erro ao copiar: " + err));
 });
